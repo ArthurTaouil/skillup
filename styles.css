@@ -1507,6 +1507,13 @@ body {
     filter: drop-shadow(0 20px 45px rgba(0,0,0,0.3));
 }
 
+/* Esconder imagem flutuante em tablet e mobile */
+@media (max-width: 768px) {
+    .hero-floating-img {
+        display: none;
+    }
+}
+
 /* ===========================
    DASHBOARD PAGE
    =========================== */
