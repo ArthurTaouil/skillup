@@ -1,0 +1,218 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Dashboard - SkillUp</title>
+    <link rel="stylesheet" href="styles.css">
+</head>
+<body>
+    <!-- Header/Navbar -->
+    <header class="header">
+        <nav class="navbar">
+            <div class="container">
+                <div class="logo">
+                    <a href="index.html" class="logo-link">
+                        <img src="logo.png" alt="SkillUp Logo" class="logo-img" />
+                    </a>
+                </div>
+                <ul class="nav-menu" id="navMenu">
+                    <li><a href="index.html#about" class="nav-link">Sobre</a></li>
+                    <li><a href="index.html#offerings" class="nav-link">O que oferecemos</a></li>
+                    <li><a href="plans.html" class="nav-link">Planos</a></li>
+                    <li><a href="index.html#testimonials" class="nav-link">Avaliações</a></li>
+                    <li><a href="contact.html" class="nav-link">Contate-nos</a></li>
+                </ul>
+                <div class="hamburger" id="hamburger">
+                    <span></span>
+                    <span></span>
+                    <span></span>
+                </div>
+            </div>
+        </nav>
+    </header>
+
+    <!-- Dashboard Section -->
+    <section id="dashboard" class="dashboard-section">
+        <div class="container">
+            <!-- Welcome Message -->
+            <div class="dashboard-header">
+                <h1 class="dashboard-title">Bem-vindo ao seu Dashboard</h1>
+                <p class="dashboard-subtitle" id="userGreeting">Carregando informações...</p>
+                <button class="btn-game-start" id="btnGameStart">Iniciar Jogo</button>
+            </div>
+
+            <div class="dashboard-grid">
+                <!-- Profile Card -->
+                <div class="profile-card">
+                    <div class="profile-header">
+                        <div class="profile-avatar" id="profileAvatar">A</div>
+                        <div class="profile-info-header">
+                            <h2 class="profile-name" id="profileName">Usuário</h2>
+                            <p class="profile-role" id="profileRole">Cargo</p>
+                        </div>
+                    </div>
+
+                    <div class="profile-divider"></div>
+
+                    <div class="profile-details">
+                        <div class="detail-row">
+                            <span class="detail-label">📧 E-mail</span>
+                            <span class="detail-value" id="detailEmail">—</span>
+                        </div>
+                        <div class="detail-row">
+                            <span class="detail-label">📱 Telefone</span>
+                            <span class="detail-value" id="detailPhone">—</span>
+                        </div>
+                        <div class="detail-row">
+                            <span class="detail-label">🏢 Local de Trabalho</span>
+                            <span class="detail-value" id="detailWorkplace">—</span>
+                        </div>
+                        <div class="detail-row">
+                            <span class="detail-label">📅 Data de Cadastro</span>
+                            <span class="detail-value" id="detailRegistered">—</span>
+                        </div>
+                    </div>
+
+                    <div class="profile-actions">
+                        <button class="btn-action btn-edit">Editar Perfil</button>
+                        <button class="btn-action btn-logout" id="logoutBtn">Sair da Conta</button>
+                    </div>
+                </div>
+
+                <!-- Stats/Info Cards -->
+                <div class="stats-section">
+                    <div class="stat-card">
+                        <div class="stat-icon">🎮</div>
+                        <div class="stat-content">
+                            <h3 class="stat-title">Experiência</h3>
+                            <p class="stat-value">Iniciante</p>
+                        </div>
+                    </div>
+
+                    <div class="stat-card">
+                        <div class="stat-icon">⭐</div>
+                        <div class="stat-content">
+                            <h3 class="stat-title">Pontuação</h3>
+                            <p class="stat-value">0 pts</p>
+                        </div>
+                    </div>
+
+                    <div class="stat-card">
+                        <div class="stat-icon">🏆</div>
+                        <div class="stat-content">
+                            <h3 class="stat-title">Badges</h3>
+                            <p class="stat-value">0 desbloqueadas</p>
+                        </div>
+                    </div>
+
+                    <div class="stat-card">
+                        <div class="stat-icon">📊</div>
+                        <div class="stat-content">
+                            <h3 class="stat-title">Progresso</h3>
+                            <p class="stat-value">0%</p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Recent Activity / Quick Links -->
+            <div class="dashboard-footer">
+                <div class="quick-links">
+                    <h3 class="quick-links-title">Ações Rápidas</h3>
+                    <div class="quick-links-grid">
+                        <a href="plans.html" class="quick-link-btn">Ver Planos</a>
+                        <a href="index.html#offerings" class="quick-link-btn">Explorar Ofertas</a>
+                        <a href="contact.html" class="quick-link-btn">Suporte</a>
+                        <a href="index.html" class="quick-link-btn">Voltar ao Início</a>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Footer -->
+    <footer class="footer">
+        <div class="container">
+            <div class="footer-links">
+                <a href="#">Termos</a>
+                <a href="#">Privacidade</a>
+                <a href="#">Preferências de cookies</a>
+            </div>
+        </div>
+    </footer>
+
+    <script src="script.js"></script>
+    <script>
+        // Dashboard-specific logic: use 'loggedUser' and 'users' for protection and data
+        document.addEventListener('DOMContentLoaded', () => {
+            const logged = localStorage.getItem('loggedUser');
+            if (!logged) {
+                alert('Nenhum usuário logado. Redirecionando para login...');
+                window.location.href = 'login-auth.html';
+                return;
+            }
+
+            const users = JSON.parse(localStorage.getItem('users')) || [];
+            const found = users.find(u => u.email === logged);
+            if (!found) {
+                // fallback: try skillUpUser
+                const userDataStr = localStorage.getItem('skillUpUser');
+                if (!userDataStr) {
+                    localStorage.removeItem('loggedUser');
+                    alert('Usuário não encontrado. Redirecionando para login...');
+                    window.location.href = 'login-auth.html';
+                    return;
+                }
+                const userData = JSON.parse(userDataStr);
+                populateDashboard(userData);
+            } else {
+                const userData = {
+                    username: found.name || found.username || '',
+                    email: found.email,
+                    password: found.senha || found.password || '',
+                    phone: found.phone || '',
+                    role: found.role || '',
+                    workplace: found.workplace || '',
+                    registeredAt: found.registeredAt || ''
+                };
+                populateDashboard(userData);
+            }
+
+            // Logout button
+            const logoutBtn = document.getElementById('logoutBtn');
+            if (logoutBtn) {
+                logoutBtn.addEventListener('click', () => {
+                    if (confirm('Tem certeza que deseja sair?')) {
+                        localStorage.removeItem('loggedUser');
+                        localStorage.removeItem('skillUpUser');
+                        alert('Você foi desconectado. Redirecionando...');
+                        window.location.href = 'index.html';
+                    }
+                });
+            }
+
+            function populateDashboard(userData) {
+                const firstLetter = (userData.username || userData.name || 'U').charAt(0).toUpperCase();
+                document.getElementById('profileAvatar').textContent = firstLetter;
+                document.getElementById('userGreeting').textContent = `Olá, ${userData.username || userData.name}! Bem-vindo de volta.`;
+                document.getElementById('profileName').textContent = userData.username || userData.name || 'Usuário';
+                document.getElementById('profileRole').textContent = userData.role || userData.cargo || '';
+
+                document.getElementById('detailEmail').textContent = userData.email || '';
+                document.getElementById('detailPhone').textContent = userData.phone || '';
+                document.getElementById('detailWorkplace').textContent = userData.workplace || '';
+                document.getElementById('detailRegistered').textContent = userData.registeredAt || '';
+            }
+
+            // Iniciar Jogo button
+            const btnGameStart = document.getElementById('btnGameStart');
+            if (btnGameStart) {
+                btnGameStart.addEventListener('click', () => {
+                    window.location.href = 'game.html';
+                });
+            }
+        });
+    </script>
+</body>
+</html>

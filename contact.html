@@ -1,0 +1,67 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Contate-nos - SkillUp</title>
+    <link rel="stylesheet" href="styles.css">
+</head>
+<body>
+    <!-- Back Arrow -->
+    <div class="back-arrow back-arrow-contact">
+        <a href="index.html">◀</a>
+    </div>
+
+    <!-- Contact Section -->
+    <section id="contact" class="contact-section">
+        <div class="contact-container">
+            <!-- Left Side - Illustration -->
+            <div class="contact-illustration">
+                <div class="phone-frame">
+                    <div class="phone-notch"></div>
+                    <img src="https://via.placeholder.com/300x500?text=Happy+Person" alt="Happy Person">
+                </div>
+            </div>
+
+            <!-- Right Side - Form -->
+            <div class="contact-form-wrapper">
+                <div class="contact-form">
+                    <h1 class="contact-title">Contate-nos</h1>
+                    
+                    <form class="contact-form-element" id="contactForm">
+                        <div class="form-group">
+                            <label for="fullname" class="form-label">Nome completo</label>
+                            <input type="text" id="fullname" name="fullname" class="form-input" placeholder="" required>
+                        </div>
+
+                        <div class="form-group">
+                            <label for="email" class="form-label">E-mail</label>
+                            <input type="email" id="email" name="email" class="form-input" placeholder="" required>
+                        </div>
+
+                        <div class="form-group">
+                            <label for="message" class="form-label">Mensagem</label>
+                            <textarea id="message" name="message" class="form-textarea" placeholder="Digite sua mensagem aqui..." required></textarea>
+                        </div>
+
+                        <button type="submit" class="contact-btn">Enviar</button>
+                    </form>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Footer -->
+    <footer class="footer footer-blue">
+        <div class="container">
+            <div class="footer-links">
+                <a href="#">Termos</a>
+                <a href="#">Privacidade</a>
+                <a href="#">Preferências de cookies</a>
+            </div>
+        </div>
+    </footer>
+
+    <script src="script.js"></script>
+</body>
+</html>

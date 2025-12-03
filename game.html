@@ -1,0 +1,137 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Jogo - SkillUp</title>
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        body {
+            font-family: 'Montserrat', sans-serif;
+            background-color: #1F2937;
+            overflow: hidden;
+            height: 100vh;
+        }
+
+        .game-container {
+            position: relative;
+            width: 100vw;
+            height: 100vh;
+            display: flex;
+            flex-direction: column;
+        }
+
+        .game-header {
+            background: linear-gradient(135deg, #422464 0%, #6D3EA3 100%);
+            padding: 12px 20px;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            box-shadow: 0 2px 10px rgba(0,0,0,0.2);
+            z-index: 100;
+        }
+
+        .game-title {
+            color: white;
+            font-size: 1.1rem;
+            font-weight: 600;
+            letter-spacing: 0.3px;
+        }
+
+        .btn-back {
+            background-color: rgba(255, 255, 255, 0.15);
+            color: white;
+            border: 1px solid rgba(255, 255, 255, 0.3);
+            padding: 8px 18px;
+            border-radius: 8px;
+            font-size: 0.9rem;
+            font-weight: 600;
+            cursor: pointer;
+            transition: all 0.2s ease;
+            text-decoration: none;
+            display: inline-block;
+        }
+
+        .btn-back:hover {
+            background-color: rgba(255, 255, 255, 0.25);
+            transform: translateY(-1px);
+        }
+
+        .game-frame {
+            flex: 1;
+            width: 100%;
+            border: none;
+            display: block;
+        }
+
+        .loading-message {
+            position: absolute;
+            top: 50%;
+            left: 50%;
+            transform: translate(-50%, -50%);
+            color: rgba(255, 255, 255, 0.7);
+            font-size: 1rem;
+            text-align: center;
+            z-index: 1;
+        }
+
+        .loading-spinner {
+            margin: 0 auto 12px;
+            width: 40px;
+            height: 40px;
+            border: 4px solid rgba(179, 229, 28, 0.2);
+            border-top-color: #B3E51C;
+            border-radius: 50%;
+            animation: spin 0.8s linear infinite;
+        }
+
+        @keyframes spin {
+            to { transform: rotate(360deg); }
+        }
+    </style>
+</head>
+<body>
+    <div class="game-container">
+        <div class="game-header">
+            <span class="game-title">🎮 SkillUp Game</span>
+            <a href="dashboard.html" class="btn-back">← Voltar ao Dashboard</a>
+        </div>
+        
+        <div class="loading-message" id="loadingMsg">
+            <div class="loading-spinner"></div>
+            Carregando jogo...
+        </div>
+
+        <iframe 
+            src="game/index.html" 
+            class="game-frame" 
+            id="gameFrame"
+            title="SkillUp Game"
+            allowfullscreen
+            allow="autoplay; fullscreen">
+        </iframe>
+    </div>
+
+    <script>
+        // Hide loading message when iframe loads
+        const gameFrame = document.getElementById('gameFrame');
+        const loadingMsg = document.getElementById('loadingMsg');
+
+        gameFrame.addEventListener('load', () => {
+            setTimeout(() => {
+                loadingMsg.style.display = 'none';
+            }, 500);
+        });
+
+        // Fallback: hide after 3 seconds anyway
+        setTimeout(() => {
+            loadingMsg.style.display = 'none';
+        }, 3000);
+    </script>
+</body>
+</html>

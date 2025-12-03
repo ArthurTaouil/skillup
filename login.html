@@ -1,0 +1,93 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Login - SkillUp</title>
+    <link rel="stylesheet" href="styles.css">
+</head>
+<body>
+    <!-- Back Arrow -->
+    <div class="back-arrow back-arrow-login">
+        <a href="login-auth.html">◀</a>
+    </div>
+
+    <!-- Login Section -->
+    <section id="login" class="login-section">
+        <div class="login-container">
+            <!-- Left Side - Illustration -->
+            <div class="login-illustration">
+                <div class="illustration-circle">
+                    <img src="login-photo.png" alt="Ilustração Login" class="login-illustration-img">
+                </div>
+            </div>
+
+            <!-- Right Side - Form -->
+            <div class="login-form-wrapper">
+                <div class="login-form">
+                    <h1 class="login-title">Cadastre-se</h1>
+                    
+                    <form class="login-form-element" id="loginForm">
+                        <div class="form-group">
+                            <label for="username" class="form-label">Nome do usuário</label>
+                            <input type="text" id="username" name="username" class="form-input" placeholder="" required>
+                        </div>
+
+                        <div class="form-group">
+                            <label for="email" class="form-label">E-mail</label>
+                            <input type="email" id="email" name="email" class="form-input" placeholder="" required>
+                        </div>
+
+                        <div class="form-group">
+                            <label for="password" class="form-label">Senha</label>
+                            <input type="password" id="password" name="password" class="form-input" placeholder="" required>
+                        </div>
+
+                        <div class="form-group">
+                            <label for="phone" class="form-label">Telefone</label>
+                            <input type="tel" id="phone" name="phone" class="form-input" placeholder="(xx) xxxxx-xxxx" required>
+                        </div>
+
+                        <div class="form-group">
+                            <label for="role" class="form-label">Cargo</label>
+                            <select id="role" name="role" class="form-input" required>
+                                <option value="">Selecione um cargo</option>
+                                <option value="RH">Recursos Humanos (RH)</option>
+                                <option value="TI">Tecnologia da Informação (TI)</option>
+                                <option value="Producao">Produção / Operações</option>
+                                <option value="Logistica">Logística</option>
+                                <option value="Outros">Outros</option>
+                            </select>
+                        </div>
+
+                        <div class="form-group" id="role-other-group" style="display:none;">
+                            <label for="role-other" class="form-label">Especifique o cargo</label>
+                            <input type="text" id="role-other" name="role-other" class="form-input" placeholder="Descreva o cargo">
+                        </div>
+
+                        <div class="form-group">
+                            <label for="workplace" class="form-label">Local de trabalho</label>
+                            <input type="text" id="workplace" name="workplace" class="form-input" placeholder="Empresa / Estado" required>
+                        </div>
+
+                        <button type="submit" class="login-btn">Cadastrar</button>
+                    </form>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Footer -->
+    <footer class="footer footer-blue">
+        <div class="container">
+            <div class="footer-links">
+                <a href="#">Termos</a>
+                <a href="#">Privacidade</a>
+                <a href="#">Preferências de cookies</a>
+            </div>
+        </div>
+    </footer>
+
+    <script src="script.js"></script>
+</body>
+</html>

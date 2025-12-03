@@ -1,0 +1,63 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Login - SkillUp</title>
+    <link rel="stylesheet" href="styles.css">
+</head>
+<body>
+    <!-- Back Arrow -->
+    <div class="back-arrow back-arrow-login">
+        <a href="index.html">◀</a>
+    </div>
+
+    <!-- Login Section -->
+    <section id="login" class="login-section">
+        <div class="login-container">
+            <!-- Left Side - Illustration -->
+            <div class="login-illustration">
+                <div class="illustration-circle">
+                    <img src="login-photo.png" alt="Ilustração Login" class="login-illustration-img">
+                </div>
+            </div>
+
+            <!-- Right Side - Form -->
+            <div class="login-form-wrapper">
+                <div class="login-form">
+                    <h1 class="login-title">Conecte-se</h1>
+                    
+                    <form class="login-form-element" id="loginAuthForm">
+
+                        <div class="form-group">
+                            <label for="email" class="form-label">E-mail</label>
+                            <input type="email" id="email" name="email" class="form-input" placeholder="" required>
+                        </div>
+
+                        <div class="form-group">
+                            <label for="senha" class="form-label">Senha</label>
+                            <input type="password" id="senha" name="senha" class="form-input" placeholder="" required>
+                        </div>
+
+                        <button type="submit" class="login-btn">Entrar</button>
+                    </form>
+
+                    <div class="login-footer">
+                        <p class="login-footer-text">Não possui uma conta?</p>
+                        <a href="login.html" class="login-signup-link">Cadastre-se</a>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Footer -->
+    <footer class="footer">
+        <div class="container">
+            <p>&copy; 2024 SkillUp. Todos os direitos reservados.</p>
+        </div>
+    </footer>
+
+    <script src="script.js"></script>
+</body>
+</html>
